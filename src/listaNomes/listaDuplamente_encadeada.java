@@ -24,22 +24,20 @@ public class listaDuplamente_encadeada {
 	}
 	
 	public void adicionarNome(Pessoa nome) {
-		String vet[] = nome.getNome().split("");
+		String buscaIndice = nome.getNome();
+		indice(buscaIndice);
 		
-		for(int num = 0; num < letras.length; num++) {
-			if(vet[0].equals(letras[num])) {
-				if(ordemAlfabetica[num] == null) {
-					primeiro = nome;
-					ultimo = nome;
-					ordemAlfabetica[num] = primeiro;
-				}else if(ordemAlfabetica[num].getProximo() == null) {
-					nome.setAnterior(ultimo);
-					ultimo.setProximo(nome);
-					ultimo = nome;
-					ordemAlfabetica[num] = ultimo;
-				}
-			}
+		if(ordemAlfabetica[indice(buscaIndice)] == null) {
+			primeiro = nome;
+			ultimo = nome;
+			ordemAlfabetica[indice(buscaIndice)] = primeiro;
+		}else if(ordemAlfabetica[indice(buscaIndice)].getProximo() == null) {
+			nome.setAnterior(ultimo);
+			ultimo.setProximo(nome);
+			ultimo = nome;
+			ordemAlfabetica[indice(buscaIndice)] = ultimo;
 		}
+		
 		totalPessoas++;
 	}
 	
