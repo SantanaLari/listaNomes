@@ -25,17 +25,17 @@ public class listaDuplamente_encadeada {
 	
 	public void adicionarNome(Pessoa nome) {
 		String buscaIndice = nome.getNome();
-		indice(buscaIndice);
+		int num = indice(buscaIndice);
 		
-		if(ordemAlfabetica[indice(buscaIndice)] == null) {
+		if(ordemAlfabetica[num] == null) {
 			primeiro = nome;
 			ultimo = nome;
-			ordemAlfabetica[indice(buscaIndice)] = primeiro;
-		}else if(ordemAlfabetica[indice(buscaIndice)].getProximo() == null) {
+			ordemAlfabetica[num] = primeiro;
+		}else if(ordemAlfabetica[num].getProximo() == null) {
 			nome.setAnterior(ultimo);
 			ultimo.setProximo(nome);
 			ultimo = nome;
-			ordemAlfabetica[indice(buscaIndice)] = ultimo;
+			ordemAlfabetica[num] = ultimo;
 		}
 		
 		totalPessoas++;
